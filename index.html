@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Engineer's Note</title>
+<meta name="description" content="NTSB hearings, explained by an aerospace engineer. Every link for The Engineer's Note, plus the merch store.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Engineer's Note">
+<meta property="og:description" content="NTSB hearings, explained by an aerospace engineer. Clips, long-form breakdowns and merch.">
+<meta name="theme-color" content="#0C0E12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='13' width='58' height='38' rx='8' fill='%230C0E12' stroke='%23FFD600' stroke-width='5'/%3E%3Ctext x='32' y='41' font-family='Arial Black,Arial' font-weight='900' font-size='20' fill='%23fff' text-anchor='middle'%3EEN%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0C0E12;
+    --panel: #151922;
+    --panel-2: #1C212C;
+    --line: #2A303D;
+    --text: #FFFFFF;
+    --muted: #B9BFCB;
+    --yellow: #FFD600;
+    --ink: #111111;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 28px 16px 40px; }
+  .wrap--wide { max-width: 980px; }
+
+  /* header: the yellow note card */
+  header { text-align: center; }
+  .avatar { width: 88px; height: 88px; border-radius: 50%; display: block; margin: 0 auto 18px; }
+  .card {
+    border: 4px solid var(--yellow);
+    border-radius: 16px;
+    padding: 14px 12px 10px;
+    margin: 0 auto;
+    max-width: 380px;
+  }
+  .card .the {
+    font-family: "Arial Black", "Arial", sans-serif; font-weight: 900;
+    color: var(--yellow); font-size: 22px; letter-spacing: .02em; line-height: 1;
+  }
+  .card .note {
+    font-family: "Arial Black", "Arial", sans-serif; font-weight: 900;
+    color: var(--text); font-size: 64px; line-height: 1; margin-top: 6px; letter-spacing: .01em;
+  }
+  h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }  /* the card is the visible title */
+  .tagline { color: var(--muted); font-weight: 700; font-size: 17px; margin: 14px 0 0; }
+
+  /* link buttons */
+  .links { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+  .btn {
+    display: flex; align-items: center; gap: 14px;
+    min-height: 58px; padding: 10px 16px;
+    background: var(--panel); border: 2px solid var(--line); border-radius: 14px;
+    text-decoration: none; font-weight: 700; font-size: 17px;
+  }
+  .btn:hover, .btn:focus-visible { border-color: var(--yellow); outline: none; }
+  .btn .ico {
+    flex: 0 0 34px; height: 34px; border-radius: 9px;
+    display: grid; place-items: center;
+    background: var(--panel-2); color: var(--yellow);
+  }
+  .btn .ico svg { width: 20px; height: 20px; fill: currentColor; }
+  .btn .sub { display: block; font-weight: 500; font-size: 13px; color: var(--muted); }
+  .btn--shop { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+  .btn--shop .ico { background: var(--ink); color: var(--yellow); }
+  .btn--shop .sub { color: #3a3a3a; }
+
+  /* latest video */
+  h2 {
+    font-family: "Arial Black", "Arial", sans-serif; font-weight: 900;
+    font-size: 15px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--yellow); margin: 36px 0 12px;
+  }
+  .video {
+    display: block; text-decoration: none; background: var(--panel);
+    border: 2px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .video:hover, .video:focus-visible { border-color: var(--yellow); outline: none; }
+  .video img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--panel-2); }
+  .video .vt { display: block; padding: 12px 14px 14px; font-weight: 700; font-size: 16px; }
+  .video .vt small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  /* merch grid */
+  .merch-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .merch-head a { color: var(--muted); font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  @media (min-width: 720px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; } }
+  .product {
+    display: flex; flex-direction: column; text-decoration: none;
+    background: var(--panel); border: 2px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .product:hover, .product:focus-visible { border-color: var(--yellow); outline: none; }
+  .product img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; background: #e9e9e9; }
+  .pname { padding: 10px 10px 2px; font-weight: 700; font-size: 14px; line-height: 1.25; flex: 1; }
+  .price { padding: 2px 10px 0; font-weight: 800; font-size: 16px; }
+  .price .note { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .buy {
+    margin: 10px; min-height: 44px; display: grid; place-items: center;
+    background: var(--yellow); color: var(--ink); border-radius: 10px;
+    font-family: "Arial Black", "Arial", sans-serif; font-weight: 900; font-size: 15px; letter-spacing: .04em;
+  }
+  .ship { color: var(--muted); font-size: 13px; margin: 12px 0 0; text-align: center; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 20px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer p { margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="avatar" alt="" width="88" height="88" src="data:image/jpeg;base64,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">
+    <div class="card" aria-hidden="true">
+      <div class="the">THE ENGINEER'S</div>
+      <div class="note">NOTE</div>
+    </div>
+    <h1>The Engineer's Note</h1>
+    <p class="tagline">NTSB hearings, explained by an aerospace engineer</p>
+  </header>
+
+  <!-- LINKS: edit hrefs here. Order = what we want tapped most. -->
+  <ul class="links">
+    <li><a class="btn" href="https://www.youtube.com/@TheEngineersNote" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></span>
+      <span>YouTube<span class="sub">@TheEngineersNote · clips + long-form breakdowns</span></span></a></li>
+    <li><a class="btn btn--shop" href="https://theengineersnote-shop.fourthwall.com" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3 3 6v5h3v10h12V11h3V6l-5.5-3a3.5 3.5 0 0 1-7 0Z"/></svg></span>
+      <span>Merch store<span class="sub">Tees from $28 · dad hats $30 · every sale supports the channel</span></span></a></li>
+    <li><a class="btn" href="https://www.instagram.com/theengineersnote/" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.3a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span>
+      <span>Instagram<span class="sub">@theengineersnote</span></span></a></li>
+    <li><a class="btn" href="https://www.tiktok.com/@theengineersnote" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2h3a5 5 0 0 0 4 4v3a8 8 0 0 1-4-1.2V15a6.5 6.5 0 1 1-6.5-6.5c.3 0 .7 0 1 .1v3.1a3.5 3.5 0 1 0 2.5 3.3V2Z"/></svg></span>
+      <span>TikTok<span class="sub">@theengineersnote</span></span></a></li>
+    <li><a class="btn" href="https://x.com/EngineersNote" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg></span>
+      <span>X<span class="sub">@EngineersNote</span></span></a></li>
+    <li><a class="btn" href="https://www.threads.com/@theengineersnote" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 22c-3 0-5.3-1-6.8-2.9C4 17.4 3.3 15 3.3 12s.7-5.4 2.1-7.1C6.9 3 9.2 2 12.2 2c2.3 0 4.2.6 5.6 1.8 1.3 1.1 2.2 2.6 2.7 4.5l-2.2.6c-.8-3.1-2.9-4.6-6.1-4.6-2.3 0-4 .7-5.1 2.1C6 7.7 5.5 9.6 5.5 12s.5 4.3 1.6 5.6c1.1 1.4 2.8 2.1 5.1 2.1 2 0 3.4-.5 4.5-1.5 1.2-1.2 1.2-2.6.8-3.6-.2-.6-.7-1.1-1.3-1.5-.2 1.1-.5 2-1.1 2.7-.8 1-1.9 1.5-3.4 1.6-1.1.1-2.2-.2-3-.8-.9-.6-1.4-1.5-1.5-2.6 0-2.2 1.7-3.6 4.6-3.8 1-.1 2 0 2.9.1-.1-.7-.4-1.2-.8-1.5-.5-.4-1.2-.6-2.1-.6-1.2 0-2 .4-2.6 1.2L7.4 8.3c.9-1.3 2.3-2 4.2-2 1.6 0 2.8.5 3.6 1.4.8.9 1.1 2.1 1.2 3.6.5.2 1 .5 1.4.8 1 .8 1.7 1.8 2 3 .6 1.8.4 4-1.3 5.7-1.5 1.4-3.4 2.1-6 2.2Zm.7-9.7h-.6c-1.8.1-2.6.8-2.5 1.6 0 .9 1 1.4 2 1.3 1-.1 2.2-.5 2.4-2.8-.4-.1-.8-.1-1.3-.1Z"/></svg></span>
+      <span>Threads<span class="sub">@theengineersnote</span></span></a></li>
+  </ul>
+
+  <!-- LATEST VIDEO: swap the ID (3 places) + title when a new long-form goes Public. -->
+  <h2>Latest video</h2>
+  <a class="video" href="https://youtu.be/VCoLTxBMHe4" rel="noopener">
+    <img src="https://i.ytimg.com/vi/VCoLTxBMHe4/hqdefault.jpg" alt="DC Midair Collision: The NTSB's 10 Hardest Questions" loading="lazy" width="480" height="270">
+    <span class="vt">DC Midair Collision: The NTSB's 10 Hardest Questions<small>Long-form breakdown · YouTube</small></span>
+  </a>
+</div>
+
+<div class="wrap wrap--wide" style="padding-top:0">
+  <div class="merch-head">
+    <h2 id="merch">Merch</h2>
+    <a href="https://theengineersnote-shop.fourthwall.com/collections/all" rel="noopener">See the whole store</a>
+  </div>
+  <!-- Generated by build_products.py from the live store. Don't hand-edit between the markers. -->
+  <div class="grid">
+      <!-- PRODUCTS:START -->
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/engineers-note-dad-hat-khaki" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/6eq7sj4TNRedAv_qp6AMETAj752FDemTW3UU78-XadI/w:720/sm:1/enc/qdfv6PEhBzGglkvV/nXvrZ0sUWY-14jf1/4XvHhzn81ukjrnmF/55JeJkcgDklnsfzd/ONpr7jIvXg74CgeN/qSzRFhSuGYKmAs6G/n7W7IWxwLQoY4WM4/hsVZ5aLi468VvRPS/UYWY4OwQ8AD8Gn6e/_4odG0TRE87rG0yF/SDdJ-eDmYQVUI5CN/3xUALljm-uPULZav/ZbWMuVLlxeLzDqnS/hxpPnfWy4-hA6bW7/r3xMINZHCyM.jpg" alt="Engineer&#x27;s Note Dad Hat - Khaki" loading="lazy" width="720" height="720">
+        <span class="pname">Engineer&#x27;s Note Dad Hat - Khaki</span>
+        <span class="price">$30</span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/engineers-note-dad-hat-black" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/yQqDwB9tC7JGAdvTEvjyXUh4w0Jj3LGjO5Uz49f0Qlw/w:720/sm:1/enc/bzC2swhC0REQ_FrA/A3TEXb6Dn5ex2vCs/ZQs7ZJfFRBysI_OT/2RdKoTqfyXlbSv_e/z0vtVhnFBHxhtiEN/Fp-IaCwZPRhMfGIZ/Ess6JXfNvRx7nqMM/HSU2t129ER5h-R1k/DljvdPqU6ZA44SKb/E8lFLFABu0gCWYBy/MTOJZbYVAbqW8f1K/N63qAe4RYqW78KbM/bpzHo7nJeaiilHc1/V4GsX_M6LxfIOX-s/7fjoXOD2peg.jpg" alt="Engineer&#x27;s Note Dad Hat - Black" loading="lazy" width="720" height="720">
+        <span class="pname">Engineer&#x27;s Note Dad Hat - Black</span>
+        <span class="price">$30</span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/torque-it-witness-it-write-it-down-tee-white" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/A3q2bq-Uwlwu-dQR2r1Hpmke2bdXXJmwoUuvS3qGRp4/w:720/sm:1/enc/rScnxCnBJl0Lr2Mf/fTYCsE0-BPkTnE--/mg8W6JVEW2x1D9hJ/EnKwrDNzj5ZKm_rl/JxZcJ7dgJhMpbPn9/lcrOPWNLhxsx3kzN/XVfhAwUwk_9OVMjq/s-sMBSIpYtF5t2xG/feR2IJN_J6CUdmiy/pq-TJqFwQCi3D_9L/my9jQWDegtbCxBp2/rl54euREvwDc3rxV/-QW9OvPoXRHlWoS7/8osCnRrYstYel-Hy/ziLQTyu5VhI.jpg" alt="Torque It. Witness It. Write It Down. Tee - White" loading="lazy" width="720" height="720">
+        <span class="pname">Torque It. Witness It. Write It Down. Tee - White</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/torque-it-witness-it-write-it-down-tee-black" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/tGx64pGB0SVfHfeNcz05b5GgJrfFe-nhJExxCkEUlgc/w:720/sm:1/enc/vyFOAy8Q2_14Qaex/R0h4je1O9ruzn2HL/ktRW0ibqFlop-x79/L9nVEoAmo23hdceB/jynoWgJw_dBtckca/7FdXCegPcxhgAr7R/s8I4VaH-lcJTk-Gp/qj8LAIcCGMqCbVu2/59DTAkfUKhzZojOC/Oncq7B4D3hoYNA8Y/FgOdVRL-l8xSTP8j/P97BjQIRCggoa5yi/L8u211hn9sokxNnI/KvKgIqBDOMIviszM/Z30TRW6NWuk.jpg" alt="Torque It. Witness It. Write It Down. Tee - Black" loading="lazy" width="720" height="720">
+        <span class="pname">Torque It. Witness It. Write It Down. Tee - Black</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/absolutely-not-tee-white" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/H4QGXBPaza3NSzGFCWyUcWeHhR0NG6gXN7QkBRvk0w8/w:720/sm:1/enc/OWT4oRTkijK97J6g/cSqFvK6fcyuanZ45/oUZ04LiyXlfKR5_1/UJRbH0IzVgNVbQpb/PQ4u0bOdsWWLoFM_/6SsTVYpdoEMPRKqd/0OZdGeF68vi9Dd1N/OOvA7AayfHBEo5J8/E55WxMTK_-YFB3Sx/xmGtsCWQjUxiB-ZF/0CEO8MnWQr0sAD31/jrZNI6lGC71um0Ut/eO501WZv_aEPzREp/Wyh13tiQT5-MZrhM/OJ3u6V30DkE.jpg" alt="Absolutely Not. Tee - White" loading="lazy" width="720" height="720">
+        <span class="pname">Absolutely Not. Tee - White</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/absolutely-not-tee-black" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/CJWLiUotA0pYDs0gn9nZcZt11M9phYESsfmXDzV-ex0/w:720/sm:1/enc/RHGre4ZrSIUTx3sh/f4T5PM8ON9CmFThr/mPRWIK7QFwgFAmSb/I40SKyb9OzXLHNtA/OizYaYGyMW5jq4dv/bPC7b_4oXrCeUBPa/woiQC_LO3yIkh9sb/0VshJG01COH3m-KH/c2FW_KtGS0GaE3mD/L1b9BWeoAr1Z3ioH/ZykTzUUV2t4mA2JQ/cf7873L54IEEwqQA/dTWO2cqkR_5JPJ1g/_mWqnuxaaJdF5EyV/MOPGCtVd9AY.jpg" alt="Absolutely Not. Tee - Black" loading="lazy" width="720" height="720">
+        <span class="pname">Absolutely Not. Tee - Black</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/engineers-note-card-tee-white" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/Reamqxu9tbsODcDsldTxDIXsuBFYkxCoBJ0C0pIGqXs/w:720/sm:1/enc/rNjLypmnymqNbG80/wVWlia1tenPZ8Gi7/fw1E57GIQtd_nquM/yjeCf5ehzUfvKQwg/ByhgjjxeHhPyaz8i/7x8VMKdb9DwW4w1b/P7pGFRIaX6MYORji/RWA00H22TfdeXJVj/XeQ-1Wx456LbMGbs/FBjqD0pbt5NWmS6F/qogbjwRREq7_8hyN/XVi0BsNro4dffnLe/jPUlx_CzLp1rRizj/8LE_eJYGP5ENQyJ0/0clTw-GOluQ.jpg" alt="Engineer&#x27;s Note Card Tee - White" loading="lazy" width="720" height="720">
+        <span class="pname">Engineer&#x27;s Note Card Tee - White</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <a class="product" href="https://theengineersnote-shop.fourthwall.com/products/engineers-note-card-tee-black" rel="noopener">
+        <img src="https://imgproxy.fourthwall.dev/S4xU0vH24BrJyffY4KVxSTF57xTqJyN4NsNSTLFFWC4/w:720/sm:1/enc/v0E9Sm2UCG4TNCNq/2PioZjDXUJDWkKxT/UXc52s27oQy9_8bt/REwbLDyK5ir2tVPj/zFlx2Tm3GUFZkvlF/Mp4KY3sCOr2dJ6B2/Xv6VvOk8Vi6wjQiY/RJ5g7TqnVX5ec_ob/qKQ9dKcQXGLXKC9_/DPx-79ITrCagtEIO/oRtEU-RVoodTIY1x/BZoM0Ww8HttLOafc/RM8cyMD9U01NOpZ4/w35QrpmShz-0aYWC/MIDh7qKxCA0.jpg" alt="Engineer&#x27;s Note Card Tee - Black" loading="lazy" width="720" height="720">
+        <span class="pname">Engineer&#x27;s Note Card Tee - Black</span>
+        <span class="price">$28<span class="note">2XL+ from $30</span></span>
+        <span class="buy">Buy</span>
+      </a>
+      <!-- PRODUCTS:END -->
+  </div>
+  <p class="ship">Made to order and shipped by Fourthwall. Checkout happens on the store.</p>
+
+  <footer>
+    <p>Not affiliated with or endorsed by the NTSB.</p>
+    <p>Hearing footage courtesy of the NTSB (public domain). Commentary and merch by The Engineer's Note.</p>
+  </footer>
+</div>
+</body>
+</html>
