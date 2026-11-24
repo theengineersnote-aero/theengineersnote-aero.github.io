@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- SECURITY: no scripts at all; images only from here, Fourthwall's CDN, YouTube thumbnails and inline data: (logo, favicon).
+     style-src = sha256 of the CSS block below; build_products.py recomputes it on every run. No inline style attributes. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data: https://imgproxy.fourthwall.dev https://i.ytimg.com; style-src 'sha256-65JyFz758Hh9hrl/EyDVYLwHeKgIOWnoRV/ka0O11Zk='; script-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Engineer's Note</title>
 <meta name="description" content="NTSB hearings, explained by an aerospace engineer. Every link for The Engineer's Note, plus the merch store.">
@@ -46,6 +50,7 @@
   a { color: inherit; }
   .wrap { max-width: 560px; margin: 0 auto; padding: 24px 16px 40px; }
   .wrap--wide { max-width: 980px; }
+  .wrap--merch { padding-top: 0; }
 
   /* header: the dimensioned yellow note card */
   header { text-align: center; }
@@ -149,18 +154,20 @@
     <li><a class="btn btn--shop" href="https://theengineersnote-shop.fourthwall.com" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3 3 6v5h3v10h12V11h3V6l-5.5-3a3.5 3.5 0 0 1-7 0Z"/></svg></span>
       <span class="lab">Merch store<span class="sub">Tees from $28 · dad hats $30 · every sale supports the channel</span></span><span class="idx">02</span></a></li>
+    <!-- INSTAGRAM: account DISABLED 11/23 (Jonathon appealing). Re-enable by removing this comment wrapper and renumbering .idx.
     <li><a class="btn" href="https://www.instagram.com/theengineersnote/" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.3a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span>
-      <span class="lab">Instagram<span class="sub">@theengineersnote</span></span><span class="idx">03</span></a></li>
+      <span class="lab">Instagram<span class="sub">@theengineersnote</span></span><span class="idx">00</span></a></li>
+    -->
     <li><a class="btn" href="https://www.tiktok.com/@theengineersnote" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2h3a5 5 0 0 0 4 4v3a8 8 0 0 1-4-1.2V15a6.5 6.5 0 1 1-6.5-6.5c.3 0 .7 0 1 .1v3.1a3.5 3.5 0 1 0 2.5 3.3V2Z"/></svg></span>
-      <span class="lab">TikTok<span class="sub">@theengineersnote</span></span><span class="idx">04</span></a></li>
+      <span class="lab">TikTok<span class="sub">@theengineersnote</span></span><span class="idx">03</span></a></li>
     <li><a class="btn" href="https://x.com/EngineersNote" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg></span>
-      <span class="lab">X<span class="sub">@EngineersNote</span></span><span class="idx">05</span></a></li>
+      <span class="lab">X<span class="sub">@EngineersNote</span></span><span class="idx">04</span></a></li>
     <li><a class="btn" href="https://www.threads.com/@theengineersnote" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 22c-3 0-5.3-1-6.8-2.9C4 17.4 3.3 15 3.3 12s.7-5.4 2.1-7.1C6.9 3 9.2 2 12.2 2c2.3 0 4.2.6 5.6 1.8 1.3 1.1 2.2 2.6 2.7 4.5l-2.2.6c-.8-3.1-2.9-4.6-6.1-4.6-2.3 0-4 .7-5.1 2.1C6 7.7 5.5 9.6 5.5 12s.5 4.3 1.6 5.6c1.1 1.4 2.8 2.1 5.1 2.1 2 0 3.4-.5 4.5-1.5 1.2-1.2 1.2-2.6.8-3.6-.2-.6-.7-1.1-1.3-1.5-.2 1.1-.5 2-1.1 2.7-.8 1-1.9 1.5-3.4 1.6-1.1.1-2.2-.2-3-.8-.9-.6-1.4-1.5-1.5-2.6 0-2.2 1.7-3.6 4.6-3.8 1-.1 2 0 2.9.1-.1-.7-.4-1.2-.8-1.5-.5-.4-1.2-.6-2.1-.6-1.2 0-2 .4-2.6 1.2L7.4 8.3c.9-1.3 2.3-2 4.2-2 1.6 0 2.8.5 3.6 1.4.8.9 1.1 2.1 1.2 3.6.5.2 1 .5 1.4.8 1 .8 1.7 1.8 2 3 .6 1.8.4 4-1.3 5.7-1.5 1.4-3.4 2.1-6 2.2Zm.7-9.7h-.6c-1.8.1-2.6.8-2.5 1.6 0 .9 1 1.4 2 1.3 1-.1 2.2-.5 2.4-2.8-.4-.1-.8-.1-1.3-.1Z"/></svg></span>
-      <span class="lab">Threads<span class="sub">@theengineersnote</span></span><span class="idx">06</span></a></li>
+      <span class="lab">Threads<span class="sub">@theengineersnote</span></span><span class="idx">05</span></a></li>
   </ul>
 
   <!-- LATEST VIDEO: swap the ID (3 places) + title when a new long-form goes Public. -->
@@ -171,7 +178,7 @@
   </a>
 </div>
 
-<div class="wrap wrap--wide" style="padding-top:0">
+<div class="wrap wrap--wide wrap--merch">
   <div class="merch-head">
     <h2 id="merch">Merch</h2>
     <a href="https://theengineersnote-shop.fourthwall.com/collections/all" rel="noopener">See the whole store</a>
